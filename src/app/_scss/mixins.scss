@@ -1,0 +1,24 @@
+@mixin gradient-animation( $deg, $start, $mid, $end, $transTime ){
+  &:before {
+    background-image: linear-gradient($deg+deg, $start, $mid, $end);
+    content: '';    
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    opacity: 0;
+    width: 100%;
+    z-index: -100;
+    transition: opacity $transTime;
+  }
+  &:hover {
+    &:before {
+      opacity: 1;
+    }
+  }
+}
+
+// arrow animtion + choose direction
+@mixin arrow-transitions($rot: 0deg) {
+  transform: translate(-50%, -50%) rotateZ($rot);
+}

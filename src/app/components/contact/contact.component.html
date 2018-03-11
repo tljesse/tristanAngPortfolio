@@ -1,0 +1,25 @@
+<div class="contact corner-wrap">
+	<a href="#" class="arrow-container" routerLink="">
+	  <div class="arrow"></div>
+	  <div class="arrow"></div>
+	  <div class="arrow"></div>  
+	</a>
+
+	<div class="content" [@fadeInOut]="!submitted">
+    <h1>Get in Touch!</h1>
+    <p>Need some help with a project? Lonely and want to chat? Give me a shout and I promise I'll get back to you soon!</p>
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit()">
+      <input type="text" class="form-control" id="name" name="name" placeholder="Name" [(ngModel)]="name" required #spy>
+
+      <input type="email" class="form-control" id="email" name="email" placeholder="Email" [(ngModel)]="email" required>
+
+      <textarea class="form-control" id="message" name="message" placeholder="What's on your mind?" [(ngModel)]="message" required></textarea>
+
+      <button type="submit" class="btn btn-inverse" [disabled]="!contactForm.form.valid">Send</button>
+
+    </form>
+	</div>
+	<div class="content" [@fadeInOut]="submitted">
+		<h1>Submitted</h1>
+	</div>
+</div>

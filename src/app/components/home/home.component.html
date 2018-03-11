@@ -1,0 +1,32 @@
+<nav class="menu">
+  <div class="hover-box left hover-left" routerLink="about">
+    <a class="left-menu"><span *ngFor="let item of splitMenu[0]; let i = index" class="char{{ i+1 }}">{{ item }}</span></a>
+  </div>
+  <div class="hover-box top hover-top" routerLink="portfolio">
+    <a class="top-menu"><span *ngFor="let item of splitMenu[1]; let i = index" class="char{{ i+1 }}">{{ item }}</span></a>
+  </div>
+  <div class="hover-box right hover-right">
+    <a class="right-menu" href="#"><span *ngFor="let item of splitMenu[2]; let i = index" class="char{{ i+1 }}">{{ item }}</span></a>
+  </div>
+  <div class="hover-box bottom hover-bottom" routerLink="contact">
+    <a class="bottom-menu"><span *ngFor="let item of splitMenu[3]; let i = index" class="char{{ i+1 }}">{{ item }}</span></a>
+  </div>
+</nav>
+<particles [style]="particleStyle" [params]="particleParams" [width]="100" [height]="100"></particles>
+<div class="content flex-row">
+  <div class="d-1of2">
+    <h1 class="site-title">{{ typing_display[0] }}</h1>
+    <h2>{{ typing_display[1] }}</h2>
+  </div>
+  <div class="d-1of2">
+    <ul>
+      <li>{{ typing_display[2] }}</li>
+      <li>{{ typing_display[3] }}</li>
+      <li>{{ typing_display[4] }}</li>
+    </ul>
+    <p>{{ typing_display[5] }}</p>
+  </div>
+</div>
+<div class="view-corner-page">
+	<router-outlet></router-outlet>
+</div>
