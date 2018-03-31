@@ -22,3 +22,10 @@
 @mixin arrow-transitions($rot: 0deg) {
   transform: translate(-50%, -50%) rotateZ($rot);
 }
+
+@mixin transition($transition...) {
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+  -webkit-transition: $transition;
+  transition:         $transition;
+}

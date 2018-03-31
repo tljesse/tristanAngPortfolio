@@ -4,21 +4,23 @@
 	  <div class="arrow"></div>
 	  <div class="arrow"></div>  
 	</a>
-	<section id=timeline>
+	<section id="timeline">
 		<h1>Portfolio</h1>
 		<p class="leader">Just a few of my past projects.</p>
 		<div class="demo-card-wrapper">
 			<ng-container *ngFor="let project of projects; let i = index">
 					<div class="demo-card demo-card--step{{ i+1 }}">
 						<div class="head">
-							<div class="number-box">
-								<span>00</span>
-							</div>
 							<h2><span class="small">{{ project.tags }}</span> {{ project.title }}</h2>
 						</div>
 						<div class="body">
 							<p>{{ project.desc }}</p>
-							<img src="{{ project.image }}" alt="Graphic">
+							<div class="img-container">
+								<img src="{{ project.image }}" alt="Graphic">
+								<div class="overlay">
+									<div class="text">{{ project.links[0].name }}</div>
+								</div>
+							</div>
 						</div>
 					</div>
 			</ng-container>

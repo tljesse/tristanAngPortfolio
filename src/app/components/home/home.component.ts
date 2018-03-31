@@ -21,9 +21,9 @@ export class HomeComponent implements OnInit {
   private typing_text: object = [
   	'Tristan Jesse',
   	'Freelance Web Developer',
-  	'Programmer',
-  	'Designer',
-  	'Dreamer',
+  	'Programming',
+  	'Designing',
+  	'Dreaming',
   	''
   ];
   private typing_display: object = [
