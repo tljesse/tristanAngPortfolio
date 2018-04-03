@@ -7,21 +7,12 @@
 	<section id="timeline">
 		<h1>Portfolio</h1>
 		<p class="leader">Just a few of my past projects.</p>
+		
 		<div class="demo-card-wrapper">
 			<ng-container *ngFor="let project of projects; let i = index">
 					<div class="demo-card demo-card--step{{ i+1 }}">
-						<div class="head">
-							<h2><span class="small">{{ project.tags }}</span> {{ project.title }}</h2>
-						</div>
-						<div class="body">
-							<p>{{ project.desc }}</p>
-							<div class="img-container">
-								<img src="{{ project.image }}" alt="Graphic">
-								<div class="overlay">
-									<div class="text">{{ project.links[0].name }}</div>
-								</div>
-							</div>
-						</div>
+						<h3>{{ project.title }}</h3>
+						<canvas #myCanvas id="scene"></canvas>	
 					</div>
 			</ng-container>
 		</div>

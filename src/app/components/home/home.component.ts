@@ -173,7 +173,7 @@ export class HomeComponent implements OnInit {
   	if (current_length < total_length) {
   		that.typing_display[index] += that.typing_text[index][current_length];
   		setTimeout(that.typingCallback, 50, that, index);
-  	} else if (index < that.typing_text.length) {
+  	} else if (index < that.typing_text.length - 1) {
   		index++;
   		setTimeout(that.typingCallback, 50, that, index);
   	}

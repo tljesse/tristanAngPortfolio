@@ -4,6 +4,7 @@ export class Project {
 		public tags: object,
 		public desc: string,
 		public links: object,
-		public image: string
+		public image: string,
+		public particles: any
 	) {}
 }
