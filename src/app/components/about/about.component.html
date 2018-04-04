@@ -6,12 +6,18 @@
 	</a>
 
 	<div class="content">
-		<p>My name is Tristan Jesse, I build websites among other things! I build in a variety of languages with my main work in:</p>
-		<ul>
-			<li>WordPress</li>
-			<li>Angular 5</li>
-			<li>Ionic</li>
-		</ul>
-		<p>Beyond those, I know all sorts of frameworks, have worked with a variety of backends and can get your project up and running just the way you need it.</p>
+		<div class="tilt-wrapper" data-tilt data-tilt-scale="1.2">
+			<p>My name is Tristan Jesse, I build websites among other things! I build in a variety of languages with my main work in:</p>
+			<ul>
+				<li>WordPress</li>
+				<li>Angular 5</li>
+				<li>Ionic</li>
+			</ul>
+			<p>Beyond those, I know all sorts of frameworks, have worked with a variety of back ends and can get your project up and running just the way you need it.</p>
+			<p>My work ranges from full website development, plugin development, web and mobile app creation as well as updating and enhancing existing projects. I thrive in new challenges and love to learn new technologies.</p>
+		</div>
+		<div class="notify" [@fadeInOut]="entered" [hidden]="finished">
+			<h3>Hover Me</h3>
+		</div>
 	</div>
 </div>

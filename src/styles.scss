@@ -2,10 +2,12 @@
 @import './app/_scss/mixins';
 @import './app/_scss/variables';
 @import './app/_scss/grid';
+@import url('https://fonts.googleapis.com/css?family=Dosis:300,400,700');
 
 body {
 	background: #f0f0f0;
   margin: 0;
+  font-family: 'Dosis', sans-serif;
 }
 
 *:focus {
@@ -84,6 +86,8 @@ body {
 	letter-spacing: 0.4em;
 	font-weight: 500;
 	text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
 
 	&.btn-primary {
 		border-color: $banner-green;
@@ -97,8 +101,10 @@ body {
 
 		&:hover:not(:disabled) {
 			border-color: $orange;
-			font-weight: 700;
+			//font-weight: 700;
 			color: $orange;
+      box-shadow: 0 0 0 0.2rem rgba($orange, 0.25);
+      background: rgba(0,0,0,0.2);
 		}
 
 		&:disabled {

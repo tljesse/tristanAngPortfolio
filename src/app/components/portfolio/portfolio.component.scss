@@ -86,7 +86,7 @@
 $background: $white;
 $box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
 $border: 1px solid rgba(191, 191, 191, 0.4);
-$items: 4;
+$items: 5;
 $rows: ceil($items/2);
 
 /* Card sizing */
@@ -196,6 +196,9 @@ $counter: $items - $rows + 2;
     margin: 10px auto 80px;
     max-width: 94%;
     z-index: 2;
+    opacity: 0;
+    transition: 1s;
+
     @include mq-sm {
       max-width: 60%;
       box-shadow: $box-shadow;
@@ -222,6 +225,10 @@ $counter: $items - $rows + 2;
       }
     }
 
+    &.show {
+      opacity: 1;
+    }
+
   }
 }
 
@@ -230,4 +237,26 @@ canvas {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2em;
+  z-index: 10;
+  background: rgba(0,0,0,0.1);
+  border-radius: 10px;
+  height: 100%;
+  font-size: 1.1rem;
+
+  h3 {
+    font-weight: 700;
+  }
+
+  p {
+    font-weight: 400;
+  }
 }

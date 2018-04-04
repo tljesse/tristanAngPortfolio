@@ -10,9 +10,14 @@
 		
 		<div class="demo-card-wrapper">
 			<ng-container *ngFor="let project of projects; let i = index">
-					<div class="demo-card demo-card--step{{ i+1 }}">
-						<h3>{{ project.title }}</h3>
-						<canvas #myCanvas id="scene"></canvas>	
+					<div class="demo-card step{{ i+1 }}" [ngClass]="{'show': complete[i]}">
+						<div class="overlay">
+							<h3>{{ project.title }}</h3>
+							<p>{{ project.desc }}</p>
+							<a class="btn btn-inverse" href="{{ project.links[0].url }}">{{ project.links[0].name }}</a>
+						</div>
+						<canvas #myCanvas id="scene"></canvas>
+
 					</div>
 			</ng-container>
 		</div>

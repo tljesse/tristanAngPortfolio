@@ -18,12 +18,21 @@ export class PortfolioComponent implements AfterViewInit {
 	public projects: Array<Project>;
   public png: any;
   public index = 0;
+  public complete = [];
   context = [];
 
   constructor() {
   	// adding a project, need to change the $items letiable in component scss
   	this.projects = [
   		{
+        title: 'ReframeDB',
+        tags: ['Angular','Flask','Material'],
+        desc: 'I joined this team of developers midway through the project to update and enhance a pharmaceutical data web portal. The app uses Angular 5 for front end and Flask Python on the back end.',
+        links: [{'name':'Visit the Site','url':'https://reframedb.org'}],
+        image: 'assets/img/repurpos-bg.png',
+        particles: []
+      },
+      {
   			title: 'Miss Sosie\'s',
   			tags: ['WordPress','Theme','Design','PayPal'],
   			desc: 'This one page site was built for Miss Sosie\'s small business out of California. They needed something modern and informative along with a payment gateway to order and deliver their product.',
@@ -42,7 +51,7 @@ export class PortfolioComponent implements AfterViewInit {
   		{
   			title: 'Virgina Bar Exam Flashcards',
   			tags: ['WordPress','Python','Anki','UNIX'],
-  			desc: 'Starting with the AnkiServer python library, I customized it to supplement study materials for the Virginia Bar Exam. I hosted the server on it\'s own Ubuntu instance and interacted with it from WordPress over HTTP requests.',
+  			desc: 'Here I customized the AnkiServer Python library supplement study materials for the Virginia Bar Exam. I hosted the server on it\'s own Ubuntu instance and interacted with it from WordPress with a REST API.',
   			links: [{'name':'Visit the Site','url':'https://www.virginiabarexamtutor.com/'},{'name':'AnkiServer','url':'https://pypi.python.org/pypi/AnkiServer/2.0.5'}],
   			image: 'assets/img/lexbar-bg.png',
         particles: []
@@ -71,12 +80,13 @@ export class PortfolioComponent implements AfterViewInit {
         this.context[i] = canvas.getContext('2d');
       }
       this.drawImage();
-    }, 1300);
+    }, 700);
     
   }
 
   drawImage() {
     let canvas = this.canvasRef.toArray()[this.index].nativeElement;
+    this.complete[this.index] = true;
 
     canvas.width = this.png.width * 2;
     canvas.height = this.png.height * 2;
@@ -85,6 +95,8 @@ export class PortfolioComponent implements AfterViewInit {
 
     let data = this.context[this.index].getImageData(0, 0, this.png.width, this.png.height);
     this.context[this.index].clearRect(0, 0, canvas.width, canvas.height);
+    console.log(data.width);
+    let tweend = false;
     
     for (let y = 0, y2 = data.height; y < y2; y+=2) {
       for (let x = 0, x2 = data.width; x < x2; x+=2) {
@@ -97,7 +109,7 @@ export class PortfolioComponent implements AfterViewInit {
             speed: Math.random() + 2
           };
 
-          if (y > y2 - 3 && x > x2 - 3){
+          if (y > y2 - 90 && !tweend){
             TweenMax.to(particle, particle.speed, {
               x1: particle.x0,
               y1: particle.y0,
@@ -106,6 +118,7 @@ export class PortfolioComponent implements AfterViewInit {
               onComplete: this.done,
               onCompleteParams: [this]
             });
+            tweend = true;
           } else {
             TweenMax.to(particle, particle.speed, {
               x1: particle.x0,
@@ -156,7 +169,7 @@ export class PortfolioComponent implements AfterViewInit {
       me.png.src = me.projects[me.index].image;
       setTimeout(() => {
         me.drawImage();
-      }, 50);
+      }, 100);
     }
 
   }

@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { ParallaxDirective } from './_directives/parallax.directive';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
     AboutComponent,
     routedComponents,
     ContactComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    ParallaxDirective
   ],
   imports: [
     BrowserModule,
