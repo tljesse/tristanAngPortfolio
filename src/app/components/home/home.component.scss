@@ -2,20 +2,6 @@
 @import '../../_scss/variables';
 @import '../../_scss/grid';
 
-.hover-box {
-  &:hover {
-    > a {
-      @for $i from 1 through 9 {
-        .char#{$i} {
-          transform: rotate(($i*6)+deg);
-          left: 150px;
-        }
-      }
-    }
-  }
-  
-}
-
 .menu {
   a {
     text-transform: uppercase;
@@ -60,4 +46,19 @@
       padding: 0 4px;
 		}
 	}
+}
+
+@include mq-lg {
+  .hover-box {
+    &:hover {
+      > a {
+        @for $i from 1 through 9 {
+          .char#{$i} {
+            transform: rotate(($i*6)+deg);
+            left: 150px;
+          }
+        }
+      }
+    } 
+  }
 }

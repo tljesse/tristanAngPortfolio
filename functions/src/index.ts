@@ -8,14 +8,13 @@ const gmailEmail = encodeURIComponent(functions.config().gmail.email);
 const gmailPassword = encodeURIComponent(functions.config().gmail.password);
 const mailTransport = nodemailer.createTransport(`smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`);
 
-exports.sendContactMessage = functions.database.ref('/messages/{pushKey}').onWrite((event: any) => {
-  const snapshot = event.data;
+exports.sendContactMessage = functions.database.ref('/messages/{pushKey}').onWrite((change) => {
 // Only send email for new messages.
-  if (snapshot.previous.val() || !snapshot.val().name) {
+  if (change.before.exists() || !change.after.val().name) {
     return;
   }
   
-  const val = snapshot.val();
+  const val = change.after.val();
   
   const mailOptions = {
     to: 'tristanljesse@gmail.com',
