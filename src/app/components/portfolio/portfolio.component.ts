@@ -95,7 +95,6 @@ export class PortfolioComponent implements AfterViewInit {
 
     let data = this.context[this.index].getImageData(0, 0, this.png.width, this.png.height);
     this.context[this.index].clearRect(0, 0, canvas.width, canvas.height);
-    console.log(data.width);
     let tweend = false;
     
     for (let y = 0, y2 = data.height; y < y2; y+=2) {

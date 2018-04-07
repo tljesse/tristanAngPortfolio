@@ -2,7 +2,13 @@ import { Component, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 
+// Potentially wrap this in a package down the line, until angular-fontawesome is released
+import {faGithub, faLinkedinIn, faWordpressSimple, faAngular} from '@fortawesome/fontawesome-free-brands';
+import fontawesome from '@fortawesome/fontawesome';
+fontawesome.library.add(faGithub, faLinkedinIn, faWordpressSimple, faAngular);
+
 import { slideTopLeft, fadeInOut } from '../../_animations/index';
+import { SocialLink } from '../../_classes/index';
 
 @Component({
   selector: 'app-about',
@@ -16,10 +22,20 @@ export class AboutComponent implements AfterViewInit {
 	typing_display: string = '';
   entered: boolean = false;
   finished: boolean = false;
+  public socialLinks: SocialLink[];
 
-  constructor(
-  	private route: ActivatedRoute,
-  	private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router) {
+    this.socialLinks = [
+      {
+        url: 'https://github.com/tljesse',
+        icon: 'fa-github'
+      },
+      {
+        url: 'https://linkedin.com/in/tristan-jesse',
+        icon: 'fa-linkedin-in'
+      }
+    ]
+  }
 
   ngAfterViewInit() {
     Observable.interval(950)

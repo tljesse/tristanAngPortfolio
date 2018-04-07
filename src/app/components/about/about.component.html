@@ -7,14 +7,20 @@
 
 	<div class="content">
 		<div class="tilt-wrapper" data-tilt data-tilt-scale="1.2">
-			<p>My name is Tristan Jesse, I build websites among other things! I build in a variety of languages with my main work in:</p>
-			<ul>
-				<li>WordPress</li>
-				<li>Angular 5</li>
-				<li>Ionic</li>
-			</ul>
+			<p>My name is Tristan Jesse, I build websites among other things! I build in several different languages with my main work in WordPress, Angular 5 and Ionic.</p>
+			<div class="icon-links technologies">
+				<a href="https://wordpress.org/"><span class="fab fa-2x fa-wordpress-simple"></span></a>
+				<a href="https://angular.io/"><span class="fab fa-2x fa-angular"></span></a>
+				<a href="https://ionicframework.com/"><svg style="width: 1em; font-size: 2em;" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path fill="currentColor" d="M425.5,135.4c4.7-5.9,7.5-13.5,7.5-21.6c0-19.2-15.6-34.8-34.8-34.8c-8.2,0-15.7,2.8-21.6,7.5C342.6,62.3,300.9,48,256,48   C141.1,48,48,141.1,48,256c0,114.9,93.1,208,208,208c114.9,0,208-93.1,208-208C464,211.1,449.7,169.4,425.5,135.4z M391.8,391.8   c-17.6,17.6-38.2,31.5-61.1,41.2c-23.7,10-48.8,15.1-74.8,15.1c-25.9,0-51.1-5.1-74.8-15.1c-22.9-9.7-43.4-23.5-61.1-41.2   c-17.6-17.6-31.5-38.2-41.2-61.1c-10-23.7-15.1-48.8-15.1-74.8c0-25.9,5.1-51.1,15.1-74.8c9.7-22.9,23.5-43.4,41.2-61.1   s38.2-31.5,61.1-41.2c23.7-10,48.8-15.1,74.8-15.1c25.9,0,51.1,5.1,74.8,15.1c12.7,5.4,24.7,12.1,35.9,20   c-2.1,4.5-3.3,9.5-3.3,14.9c0,19.2,15.6,34.8,34.8,34.8c5.3,0,10.3-1.2,14.9-3.3c7.9,11.2,14.6,23.2,20,35.9   c10,23.7,15.1,48.8,15.1,74.8c0,25.9-5.1,51.1-15.1,74.8C423.3,353.6,409.5,374.2,391.8,391.8z"/><circle fill="currentColor" cx="256" cy="256" r="96.1"/></g></svg></a>
+			</div>
 			<p>Beyond those, I know all sorts of frameworks, have worked with a variety of back ends and can get your project up and running just the way you need it.</p>
 			<p>My work ranges from full website development, plugin development, web and mobile app creation as well as updating and enhancing existing projects. I thrive in new challenges and love to learn new technologies.</p>
+			<p>If you're looking for some help with a project send me a message <a routerLink="../contact">here</a> or on <a href="https://www.upwork.com/o/profiles/users/_~01dbddf061ee8df150/">UpWork</a> and I'll get back to you as soon as I can!</p>
+			<div class="icon-links">
+				<a *ngFor="let social of socialLinks" href="{{ social.url }}" ><span class="fab fa-2x {{ social.icon }}"></span></a>
+				<!-- Upwork is not part of fontawesome and must be added manually -->
+				<a href="https://www.upwork.com/o/profiles/users/_~01dbddf061ee8df150/"><svg style="width: 1em;font-size: 2em;" version="1.1" viewBox="0 0 56.7 56.7" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="currentColor" d="M42.4,17.7c-5.3,0-9.3,3.5-10.9,9c-2.5-3.9-4.5-8.3-5.6-12.1h-5.6v14.7c0,2.9-2.4,5.3-5.3,5.3c-2.9,0-5.3-2.4-5.3-5.3V14.7  H4.3v14.7c0,6.1,4.9,11,10.9,11c6,0,10.9-4.9,10.9-11v-2.5c1.1,2.2,2.5,4.6,4,6.7l-3.5,16.3h5.7L34.7,38c2.2,1.4,4.7,2.2,7.7,2.2  c6.1,0,11.1-5,11.1-11.4C53.5,22.7,48.5,17.7,42.4,17.7z M42.4,34.6c-2.2,0-4.5-1-6.3-2.5l0.6-2.2v-0.1c0.4-2.4,1.7-6.4,5.8-6.4  c3.1,0,5.6,2.5,5.6,5.6C48,32.1,45.3,34.6,42.4,34.6z"/></svg></a>
+			</div>
 		</div>
 		<div class="notify" [@fadeInOut]="entered" [hidden]="finished">
 			<h3>Hover Me</h3>

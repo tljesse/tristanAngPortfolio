@@ -9,16 +9,45 @@
 
 .content {
   flex-direction: column;
+  overflow: auto;
 
   .tilt-wrapper {
     display: flex;
     flex-direction: column;
     z-index: 10;
+    width: 90vw;
+    height: auto;
+    margin: 10em 0;
+  }
+}
+
+.icon-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  &.technologies {
+    width: 25%;
+    align-items: center;
+    margin: 1em;
+
+    a {
+      margin: 0.5em;
+    }
   }
 
-	p {
-		width: 70vh;
-	}
+  a {
+    margin: 0 1em;
+
+    svg {
+      color: $white;
+      transition: 0.3s;
+
+      &:hover {
+        color: $banner-blue;
+      }
+    }
+  }
 }
 
 .notify {
@@ -79,6 +108,21 @@
     &:nth-child(#{$i}) {
       opacity: 0.3 * $i;
       top: 15 + (100% * $i/5);
+    }
+  }
+}
+
+@include mq-lg {
+  .content {
+    .tilt-wrapper {
+      margin: 0;
+      width: 50vw;
+    }
+  }
+
+  .icon-links {
+    &.technologies {
+      margin: 0;
     }
   }
 }

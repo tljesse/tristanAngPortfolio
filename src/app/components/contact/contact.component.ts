@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 import { slideBottomLeft, fadeInOut } from '../../_animations/index';
 
@@ -11,18 +12,37 @@ import { slideBottomLeft, fadeInOut } from '../../_animations/index';
   animations: [slideBottomLeft, fadeInOut],
   host: { '[@slideBottomLeft]': '' }
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent {
 	submitted: boolean = false;
 	name: string = '';
 	email: string = '';
 	message: string = '';
+  form: FormGroup;
 
-  constructor() { }
+  constructor(private fb: FormBuilder, private af: AngularFireDatabase) {
+    this.createForm();
+  }
 
-  ngOnInit() {
+  createForm() {
+    this.form = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      message: ['', Validators.required]
+    });
   }
 
   onSubmit() {
+    const {name, email, message} = this.form.value;
+    const date = Date();
+    const html = `
+      <div>From: ${name}</div>
+      <div>Email: <a href="mailto:${email}">${email}</a></div>
+      <div>Message: ${message}</div>
+    `;
+
+    let formRequest = { name, email, message, date, html };
+    this.af.list('/messages').push(formRequest);
+    this.form.reset();
   	this.submitted = true;
   }
 
