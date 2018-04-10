@@ -42,6 +42,12 @@
       opacity: 1;
     }
   }
+
+  &.show {
+    &:before {
+      opacity: 1;
+    }
+  }
 }
 
 // arrow animtion + choose direction

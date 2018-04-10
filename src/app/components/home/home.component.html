@@ -1,14 +1,14 @@
 <nav class="menu">
-  <div class="hover-box left hover-left" routerLink="about">
+  <div class="hover-box left hover-left" [ngClass]="{'show': initial[0]}" routerLink="about">
     <a class="left-menu"><span *ngFor="let item of splitMenu[0]; let i = index" class="char{{ i+1 }}">{{ item }}</span></a>
   </div>
-  <div class="hover-box top hover-top" routerLink="portfolio">
+  <div class="hover-box top hover-top" [ngClass]="{'show': initial[1]}" routerLink="portfolio">
     <a class="top-menu"><span *ngFor="let item of splitMenu[1]; let i = index" class="char{{ i+1 }}">{{ item }}</span></a>
   </div>
-  <div class="hover-box right hover-right">
-    <a class="right-menu" href="#"><span *ngFor="let item of splitMenu[2]; let i = index" class="char{{ i+1 }}">{{ item }}</span></a>
+  <div class="hover-box right hover-right" [ngClass]="{'show': initial[2]}" routerLink="blog">
+    <a class="right-menu"><span *ngFor="let item of splitMenu[2]; let i = index" class="char{{ i+1 }}">{{ item }}</span></a>
   </div>
-  <div class="hover-box bottom hover-bottom" routerLink="contact">
+  <div class="hover-box bottom hover-bottom" [ngClass]="{'show': initial[3]}" routerLink="contact">
     <a class="bottom-menu"><span *ngFor="let item of splitMenu[3]; let i = index" class="char{{ i+1 }}">{{ item }}</span></a>
   </div>
 </nav>

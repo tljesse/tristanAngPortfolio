@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit {
   splitMenu = {};
   particleStyle: object = {};
   particleParams: object = {};
+  public initial: Boolean[] = [false, false, false, false];
   private title_text: string = 'Tristan Jesse';
   private title_display: string = '';
   private typing_text: object = [
@@ -165,18 +167,34 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   	this.typingCallback(this, 0);
+  	this.highlightMenu();
   }
 
-  typingCallback(that, index) {
-  	let total_length = that.typing_text[index].length;
-  	let current_length = that.typing_display[index].length;
-  	if (current_length < total_length) {
-  		that.typing_display[index] += that.typing_text[index][current_length];
-  		setTimeout(that.typingCallback, 50, that, index);
-  	} else if (index < that.typing_text.length - 1) {
-  		index++;
-  		setTimeout(that.typingCallback, 50, that, index);
-  	}
+  /*
+   * @todo do this as a promise correctly
+   */
+  typingCallback(that, index): Promise<any> {
+		return new Promise((resolve, reject) => {
+			let total_length = that.typing_text[index].length;
+	  	let current_length = that.typing_display[index].length;
+	  	if (current_length < total_length) {
+	  		that.typing_display[index] += that.typing_text[index][current_length];
+	  		setTimeout(that.typingCallback, 50, that, index);
+	  	} else if (index < that.typing_text.length - 1) {
+	  		index++;
+	  		setTimeout(that.typingCallback, 50, that, index);
+	  	} else {
+	  		resolve('done');
+	  	}
+		});	
   }
 
+  highlightMenu() {
+  	Observable.interval(500)
+      .takeWhile((val, index) => index < 5)
+      .subscribe(i => {
+        if (i < this.initial.length) this.initial[i] = true;
+        if (i > 0) this.initial[i-1] = false;
+      });
+  }
 }

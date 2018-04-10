@@ -10,6 +10,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AppRoutingModule, routedComponents } from './app-routing.module';
 import { environment } from '../environments/environment';
 
+import { ReaderModule } from './reader/reader.module';
+
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HomeComponent } from './components/home/home.component';
@@ -31,6 +33,7 @@ import { ParallaxDirective } from './_directives/parallax.directive';
   ],
   imports: [
     BrowserModule,
+    ReaderModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     ParticlesModule,

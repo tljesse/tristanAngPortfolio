@@ -1,12 +1,15 @@
-.row {
-	width: 100%;
-
-	.d-1of2 {
-		display: block;
-		width: 50%;
-	}
-}
-
-.flex-row {
+.grid {
+	display: flex;
 	
+	border: 1px solid black;
+
+	&.row {
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	&.column {
+		flex-direction: column;
+	}
 }

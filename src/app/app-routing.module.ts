@@ -7,6 +7,8 @@ import { ContactComponent } from './components/contact/contact.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
+import { readerRoutes } from './reader/reader-routing.module';
+
 const appRoutes: Routes = [
 	{
 		path: '',
@@ -14,12 +16,9 @@ const appRoutes: Routes = [
 		children: [
 			{ path: 'about', component: AboutComponent },
 			{ path: 'contact', component: ContactComponent },
-			{ path: 'portfolio', component: PortfolioComponent }
+			{ path: 'portfolio', component: PortfolioComponent },
+			{ path: 'blog', children: [...readerRoutes] }//loadChildren: 'app/reader/reader.module#ReaderModule' }
 		]
-	},
-	{
-		path: 'blog',
-		loadChildren: 'app/reader/reader.module#ReaderModule'
 	},
 	{
 		path: 'editor',

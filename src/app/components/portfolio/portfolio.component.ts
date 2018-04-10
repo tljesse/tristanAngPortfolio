@@ -66,8 +66,6 @@ export class PortfolioComponent implements AfterViewInit {
   		}
   	];
 
-    
-
     this.png = new Image();
     this.png.src = this.projects[this.index].image;
     

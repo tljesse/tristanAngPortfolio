@@ -10,14 +10,14 @@ export const slideBottomRight =
 			right: 0,
 			bottom: 0,
 			zIndex: 20,
-			backgroundColor: '#35c988'
+			backgroundColor: '#2e5d98'
 		})),
 
 		transition(':enter', [
 			style({
 				left: '400%',
 				top: '400%',
-				backgroundColor: '#35c988'
+				backgroundColor: '#2e5d98'
 			}),
 
 			animate('1s ease-in-out', style({
