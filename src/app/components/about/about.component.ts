@@ -1,3 +1,7 @@
+
+import {interval as observableInterval} from 'rxjs';
+
+import {takeWhile} from 'rxjs/operators';
 import { Component, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
@@ -38,8 +42,8 @@ export class AboutComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    Observable.interval(950)
-      .takeWhile((val, index) => index < 3)
+    observableInterval(950).pipe(
+      takeWhile((val, index) => index < 3))
       .subscribe(i => {
         if (i < 2)
           this.entered = !this.entered;

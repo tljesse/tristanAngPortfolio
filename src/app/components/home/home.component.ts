@@ -1,3 +1,7 @@
+
+import {interval as observableInterval} from 'rxjs';
+
+import {takeWhile} from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
@@ -25,7 +29,7 @@ export class HomeComponent implements OnInit {
   	'Freelance Web Developer',
   	'Programming',
   	'Designing',
-  	'Dreaming',
+  	'Consulting',
   	''
   ];
   private typing_display: object = [
@@ -190,8 +194,8 @@ export class HomeComponent implements OnInit {
   }
 
   highlightMenu() {
-  	Observable.interval(500)
-      .takeWhile((val, index) => index < 5)
+  	observableInterval(500).pipe(
+      takeWhile((val, index) => index < 5))
       .subscribe(i => {
         if (i < this.initial.length) this.initial[i] = true;
         if (i > 0) this.initial[i-1] = false;
